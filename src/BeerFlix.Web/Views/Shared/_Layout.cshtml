@@ -3,12 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>BeerFlix (www.flix.beer) - @ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/Content/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/Content/images/beerflix icon-touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/Content/images/beerflix icon-touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/Content/images/beerflix icon-touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/Content/images/beerflix icon-touch-icon-ipad-retina.png">
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -26,12 +32,12 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div>*@
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - BeerFlix (www.flix.beer)</p>
         </footer>
     </div>
 
