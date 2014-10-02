@@ -12,8 +12,7 @@ namespace BeerFlix.Data.Beers
         private readonly ICountryRepository _countryRepository;
         private readonly IEnumerable<Beer> _beers;
         private readonly IEnumerable<BeerStyle> _beerStyles;
-        private readonly IEnumerable<BeerProducer> _beerProducers;
-       
+        private readonly IEnumerable<BeerProducer> _beerProducers;      
 
         public BeerRepository(ExcelReader<SystembolagetArticleRow> reader, ICountryRepository countryRepository)
         {
@@ -84,6 +83,11 @@ namespace BeerFlix.Data.Beers
         public IEnumerable<Beer> GetBeersByCriteria(SearchCriteria criteria)
         {
             return _beers.Where(b => b.MatchesCriteria(criteria)).Take(3).ToArray();
+        }
+
+        public int GetBeerCount()
+        {
+            return _beers.Count();
         }
     }
 
