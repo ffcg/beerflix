@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="MovieRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TheMovieDatabaseServiceTests.cs" />
+    <Compile Include="UrlBuilderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
