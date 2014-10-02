@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace BeerFlix.Data.Beers
 {
-    public class BeerRepository
+    public class BeerRepository : IBeerRepository
     {
         private readonly ExcelReader<SystembolagetArticleRow> _reader;
         private readonly IEnumerable<Beer> _beers;
@@ -30,7 +30,7 @@ namespace BeerFlix.Data.Beers
                 .ToArray();
         }
 
-        public IEnumerable<Beer> GetBeersByCharacteristics(SearchCriteria criteria)
+        public IEnumerable<Beer> GetBeersByCriteria(SearchCriteria criteria)
         {
             return _beers.Where(b => b.MatchesCriteria(criteria)).Take(3).ToArray();
         }

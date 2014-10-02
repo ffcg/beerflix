@@ -17,7 +17,7 @@ namespace BeerFlix.Data.Beers.Tests
             var repository = new BeerRepository(reader);
 
             // Act
-            var beers = repository.GetBeersByCharacteristics(new SearchCriteria());
+            var beers = repository.GetBeersByCriteria(new SearchCriteria());
 
             // Assert
             beers.Should().HaveCount(3);
