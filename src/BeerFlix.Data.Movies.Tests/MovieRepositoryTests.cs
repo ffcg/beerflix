@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -49,18 +50,15 @@ namespace BeerFlix.Data.Movies.Tests
             
             //ASSERT
             searchMovieTitles.Count().Should().Be(3, "Movie count should be 3");
-
             var movie0 = searchMovieTitles.ElementAt(0);
             var movie1 = searchMovieTitles.ElementAt(1);
             var movie2 = searchMovieTitles.ElementAt(2);
-
-            movie0.Name.Should().NotBe(movie1.Name);
-            movie2.Name.Should().NotBe(movie1.Name);
-            movie1.Name.Should().NotBe(movie2.Name);
-        }
+            movie0.original_title.Should().NotBe(movie1.original_title);
+            movie2.original_title.Should().NotBe(movie1.original_title);
+            movie1.original_title.Should().NotBe(movie2.original_title);
+        }        
     }
-
-
+    
     public class MockMovieService : IMovieService
     {
         public IEnumerable<Movie> GetMovies(string searchString)
@@ -70,9 +68,9 @@ namespace BeerFlix.Data.Movies.Tests
             {
                 movies.AddRange(new List<Movie>
                 {
-                    new Movie("movie1"), 
-                    new Movie("movie2"), 
-                    new Movie("movie3")
+                    new Movie(){original_title = "movie1"}, 
+                    new Movie(){original_title = "movie2"}, 
+                    new Movie(){original_title = "movie3"}
                 });
             }
             return movies;

@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace BeerFlix.Data.Movies
 {
     public class MovieRepository
     {
-        private IMovieService _movieService;
+        private readonly IMovieService _movieService;
         public MovieRepository(IMovieService movieService)
         {
             _movieService = movieService;

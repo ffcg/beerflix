@@ -1,17 +1,27 @@
-﻿namespace BeerFlix.Data
+﻿using System.Collections.Generic;
+
+namespace BeerFlix.Data
 {
+
+    public class SearchMovieResponse
+    {
+        public string page { get; set; }
+        public string total_pages { get; set; }
+        public List<Movie> results { get; set; }
+        public string total_results { get; set; }
+    }
     public class Movie
     {
-        private readonly string _name;
+        public string adult { get; set; }
+        public string budget { get; set; }
+        //public List<Genre> genres { get; set; }
+        public string original_title { get; set; }
 
-        public Movie(string name)
-        {
-            _name = name;
-        }
+    }
 
-        public string Name
-        {
-            get { return _name; }
-        }
+    public class Genre  
+    {
+        public int id { get; set; }
+        public string name { get; set; }
     }
 }
