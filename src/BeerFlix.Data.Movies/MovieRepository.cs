@@ -5,9 +5,9 @@ namespace BeerFlix.Data.Movies
 {
     public class MovieRepository
     {
-        public IEnumerable<Movie> SearchMovieTitles(string searchString)
+        public IEnumerable<Movie> SearchMovieTitles(string searchString = null)
         {
-            throw new NotImplementedException();
+            return new List<Movie>();
         }
     }
 }
