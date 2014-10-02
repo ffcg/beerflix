@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 
@@ -10,10 +11,13 @@ namespace BeerFlix.Data.Beers.Tests
         public void BeerRepository_GetBeersByCharacteristics_with_emtpy_args_should_return_3_random_beers()
         {
             // Act
-            var repository = new BeerRepository();
+            var reader = new ExcelReader<SystembolagetArticleRow>();
+            var fileStream = File.Open(@"Data/systembolaget.xlsx",
+                FileMode.Open, FileAccess.Read, FileShare.Read);
+            var repository = new BeerRepository(reader);
 
             // Act
-            var beers = repository.GetBeersByCharacteristics();
+            var beers = repository.GetBeersByCharacteristics(new SearchCriteria());
 
             // Assert
             beers.Should().HaveCount(3);
