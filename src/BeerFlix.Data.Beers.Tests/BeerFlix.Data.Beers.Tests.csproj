@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\systembolaget.xlsx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

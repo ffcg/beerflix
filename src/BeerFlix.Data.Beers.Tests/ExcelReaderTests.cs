@@ -15,10 +15,10 @@ namespace BeerFlix.Data.Beers.Tests
                 FileMode.Open, FileAccess.Read, FileShare.Read);
 
             // Act
-            var systembolagetArticleRows = reader.GetAllRows(fileStream, @"Alla+Artiklar");
+            var systembolagetArticleRows = reader.GetAllRows(fileStream, @"AllaArtiklar");
 
             // Assert
-            systembolagetArticleRows.Should().HaveCount(17521);
+            systembolagetArticleRows.Should().HaveCount(2049);
         }
     }
 }
