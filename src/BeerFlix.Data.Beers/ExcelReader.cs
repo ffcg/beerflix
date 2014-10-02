@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -12,13 +11,19 @@ namespace BeerFlix.Data.Beers
 {
     public class ExcelReader<T> where T : new()
     {
+        private readonly IFilePathBuilder _filePathBuilder;
+        private readonly string _fileStreamPath;
+        private readonly string _workSheetName;
         private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private ExcelPackage _package;
         private string[] _workSheetNames;
 
-        public ExcelReader()
+        public ExcelReader(IFilePathBuilder filePathBuilder, string fileStreamPath, string workSheetName)
         {
+            _filePathBuilder = filePathBuilder;
+            _fileStreamPath = fileStreamPath;
+            _workSheetName = workSheetName;
         }
 
         private bool Open(Stream fileStream)
@@ -42,13 +47,14 @@ namespace BeerFlix.Data.Beers
             _package.Dispose();
         }
 
-        public IEnumerable<T> GetAllRows(Stream fileStream, string worksheet)
+        public IEnumerable<T> GetAllRows()
         {
-            //var fileStream = File.Open(@"Data/systembolaget.xlsx",
-            //    FileMode.Open, FileAccess.Read, FileShare.Read);
+            var path = _filePathBuilder.BuildPath(_fileStreamPath);
+            var fileStream = File.Open(path,
+                FileMode.Open, FileAccess.Read, FileShare.Read);
             Open(fileStream);
 
-            var workSheet = _package.Workbook.Worksheets[worksheet];
+            var workSheet = _package.Workbook.Worksheets[_workSheetName];
             var dataType = typeof (T);
             var propertiesInDataType = dataType.GetProperties();
             var headers = workSheet.Cells[1, 1, 2, propertiesInDataType.Length]
@@ -142,99 +148,5 @@ namespace BeerFlix.Data.Beers
             public int Column { get; private set; }
         }   
 
-    }
-
-    public static class DataTypeParser
-    {
-        public static object ParseValue(object value, Type dataType, CultureInfo cultureInfo)
-        {
-            if (dataType == typeof (int))
-            {
-                return ParseIntegerValue(value, cultureInfo);
-            }
-            else if (dataType == typeof(double))
-            {
-                return ParseDoubleValue(value, cultureInfo);
-            }
-            else if (dataType == typeof(bool))
-            {
-                return ParseBooleanValue(value, cultureInfo);
-            }
-            else if (dataType == typeof(DateTime))
-            {
-                return ParseDateTimeValue(value, cultureInfo);
-            }
-            else
-            {
-                return value == null ? null : value.ToString();
-            }
-            throw new NotSupportedException(string.Format("Could not parse the value, the datatype {0} is not supported", dataType));
-        }
-
-        public static bool TestIntegerValue(object value, System.Globalization.CultureInfo cultureInfo)
-        {
-            if (value == null) return false;
-
-            var result = -1;
-            return int.TryParse(value.ToString(),
-                NumberStyles.Integer | NumberStyles.AllowLeadingSign | NumberStyles.AllowLeadingWhite | NumberStyles.AllowParentheses | NumberStyles.AllowThousands | NumberStyles.AllowTrailingWhite,
-                cultureInfo,
-                out result);
-        }
-
-        public static bool TestDoubleValue(object value, System.Globalization.CultureInfo cultureInfo)
-        {
-            if (value == null) return false;
-
-            var result = -1.0;
-            return double.TryParse(value.ToString(),
-                NumberStyles.Float | NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign | NumberStyles.AllowLeadingWhite | NumberStyles.AllowParentheses | NumberStyles.AllowThousands | NumberStyles.AllowTrailingWhite,
-                cultureInfo,
-                out result);
-        }
-
-        public static bool TestBooleanValue(object value, System.Globalization.CultureInfo cultureInfo)
-        {
-            if (value == null) return false;
-
-            var result = false;
-            return bool.TryParse(value.ToString(), out result);
-        }
-
-        public static bool TestDateTimeValue(object value, System.Globalization.CultureInfo cultureInfo)
-        {
-            if (value == null) return false;
-
-            var result = DateTime.MinValue;
-            return DateTime.TryParse(value.ToString(), out result);
-        }
-
-        public static int? ParseIntegerValue(object value, System.Globalization.CultureInfo cultureInfo)
-        {
-            if (value == null) return null;
-            return int.Parse(value.ToString(),
-                NumberStyles.Integer | NumberStyles.AllowLeadingSign | NumberStyles.AllowLeadingWhite | NumberStyles.AllowParentheses | NumberStyles.AllowThousands | NumberStyles.AllowTrailingWhite,
-                cultureInfo);
-        }
-
-        public static double? ParseDoubleValue(object value, System.Globalization.CultureInfo cultureInfo)
-        {
-            if (value == null) return null;
-            return double.Parse(value.ToString(),
-                NumberStyles.Float | NumberStyles.AllowDecimalPoint | NumberStyles.AllowLeadingSign | NumberStyles.AllowLeadingWhite | NumberStyles.AllowParentheses | NumberStyles.AllowThousands | NumberStyles.AllowTrailingWhite,
-                cultureInfo);
-        }
-
-        public static bool? ParseBooleanValue(object value, System.Globalization.CultureInfo cultureInfo)
-        {
-            if (value == null) return null;
-            return bool.Parse(value.ToString());
-        }
-
-        public static DateTime? ParseDateTimeValue(object value, System.Globalization.CultureInfo cultureInfo)
-        {
-            if (value == null) return null;
-            return DateTime.Parse(value.ToString());
-        }
     }
 }

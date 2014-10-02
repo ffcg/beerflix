@@ -55,8 +55,13 @@
   <ItemGroup>
     <Compile Include="BeerRepository.cs" />
     <Compile Include="Common\BeerRepositoryInstaller.cs" />
+    <Compile Include="Common\CountryRepositoryInstaller.cs" />
+    <Compile Include="Common\ExcelReaderInstaller.cs" />
+    <Compile Include="DataTypeParser.cs" />
     <Compile Include="ExcelReader.cs" />
+    <Compile Include="FilePathBuilder.cs" />
     <Compile Include="IBeerRepository.cs" />
+    <Compile Include="IFilePathBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchCriteria.cs" />
     <Compile Include="SearchCriteriaExtensions.cs" />

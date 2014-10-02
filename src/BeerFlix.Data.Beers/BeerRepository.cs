@@ -18,15 +18,14 @@ namespace BeerFlix.Data.Beers
         {
             _reader = reader;
             _countryRepository = countryRepository;
-            var fileStream = File.Open(@"Data/systembolaget.xlsx",
-                FileMode.Open, FileAccess.Read, FileShare.Read);
 
-            var systembolagetArticleRows = _reader.GetAllRows(fileStream, @"AllaArtiklar");
+            var systembolagetArticleRows = _reader.GetAllRows();
             _beerStyles = systembolagetArticleRows
                 .SelectMany(a => GetBeerStylesFromList(a.Varugrupp))
                 .Distinct()
                 .Select(s => new BeerStyle(){Name = s})
                 .ToArray();
+
             var beerStyleLookup = _beerStyles.ToDictionary(bs => bs.Name);
 
             _beerProducers = systembolagetArticleRows
@@ -44,7 +43,7 @@ namespace BeerFlix.Data.Beers
                 .Select(a => new { Country = a, ISOCode = _countryRepository.GetCountryCodeForLocalizedCountryName(a, swedishCultureInfo)})
                 .ToDictionary(a => a.Country, a => a.ISOCode);
 
-            _beers = _reader.GetAllRows(fileStream, @"AllaArtiklar")
+            _beers = systembolagetArticleRows
                 .Select(
                     a =>
                         new Beer()

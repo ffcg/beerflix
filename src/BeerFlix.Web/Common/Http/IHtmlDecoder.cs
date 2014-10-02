@@ -1,4 +1,6 @@
-﻿namespace BeerFlix.Web.Common.Http
+﻿using System.Collections;
+
+namespace BeerFlix.Web.Common.Http
 {
     public interface IHtmlDecoder
     {

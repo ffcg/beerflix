@@ -123,11 +123,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\Bootstrapper.cs" />
+    <Compile Include="Common\Enumerable\RandomSorter.cs" />
+    <Compile Include="Common\Installers\AspNetDataPathBuilderInstaller.cs" />
     <Compile Include="Common\Installers\ControllerFactoryInstaller.cs" />
     <Compile Include="Common\Installers\ControllersInstaller.cs" />
     <Compile Include="Common\Installers\HttpContextDependenciesInstaller.cs" />
     <Compile Include="Common\Http\HttpContextHtmlDecoder.cs" />
     <Compile Include="Common\Http\IHtmlDecoder.cs" />
+    <Compile Include="Common\MVC\AspNetDataPathBuilder.cs" />
     <Compile Include="Common\MVC\WindsorControllerFactory.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -151,6 +154,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Data\systembolaget.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -179,9 +185,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -193,6 +197,14 @@
     <ProjectReference Include="..\BeerFlix.Data.Beers\BeerFlix.Data.Beers.csproj">
       <Project>{50D069C4-FB72-4AC2-AA41-2F8E4EEF375E}</Project>
       <Name>BeerFlix.Data.Beers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BeerFlix.Data.Movies\BeerFlix.Data.Movies.csproj">
+      <Project>{06e37589-ad6d-445a-b12f-29bcf5c1e3c0}</Project>
+      <Name>BeerFlix.Data.Movies</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BeerFlix.Data\BeerFlix.Data.csproj">
+      <Project>{a8165f51-bbd9-4a17-adbd-14034f0792af}</Project>
+      <Name>BeerFlix.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

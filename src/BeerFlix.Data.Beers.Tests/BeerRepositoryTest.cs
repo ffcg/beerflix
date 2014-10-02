@@ -11,9 +11,7 @@ namespace BeerFlix.Data.Beers.Tests
         public void BeerRepository_GetBeersByCharacteristics_with_emtpy_args_should_return_3_random_beers()
         {
             // Act
-            var reader = new ExcelReader<SystembolagetArticleRow>();
-            var fileStream = File.Open(@"Data/systembolaget.xlsx",
-                FileMode.Open, FileAccess.Read, FileShare.Read);
+            var reader = new ExcelReader<SystembolagetArticleRow>(new FilePathBuilder(), @"Data/systembolaget.xlsx", @"AllaArtiklar");
             var repository = new BeerRepository(reader, new CountryRepository());
 
             // Act

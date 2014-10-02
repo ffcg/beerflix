@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BeerFlix.Data.Beers;
+using BeerFlix.Web.Common.Enumerable;
 
 namespace BeerFlix.Web.Controllers
 {
@@ -18,7 +19,12 @@ namespace BeerFlix.Web.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var model = new Models.Home.Index();
+            model.BeerCount = _beerRepository.GetBeerCount();
+            model.BeerStylesCount = _beerRepository.GetBeerStyles().Count();
+            model.SelectBeerStyleNames = _beerRepository.GetBeerStyles().Randomize().Take(5).Select(bs => bs.Name);
+            model.BeerProducersCount = _beerRepository.GetBeerProducers().Count();
+            return View(model);
         }
 
         public ActionResult About()

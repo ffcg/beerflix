@@ -5,6 +5,7 @@ using Castle.Windsor;
 
 namespace BeerFlix.Web.Common.MVC
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class WindsorControllerFactory : DefaultControllerFactory
     {
         private readonly IWindsorContainer _container;
