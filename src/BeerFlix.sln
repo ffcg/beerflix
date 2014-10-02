@@ -7,9 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerFlix.Web", "BeerFlix.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerFlix.Data", "BeerFlix.Data\BeerFlix.Data.csproj", "{A8165F51-BBD9-4A17-ADBD-14034F0792AF}"
 EndProject
+<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerFlix.Data.Beers", "BeerFlix.Data.Beers\BeerFlix.Data.Beers.csproj", "{50D069C4-FB72-4AC2-AA41-2F8E4EEF375E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerFlix.Data.Beers.Tests", "BeerFlix.Data.Beers.Tests\BeerFlix.Data.Beers.Tests.csproj", "{C546D61A-89FB-4E48-A55C-57150925C3B5}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerFlix.Data.Movies", "BeerFlix.Data.Movies\BeerFlix.Data.Movies.csproj", "{06E37589-AD6D-445A-B12F-29BCF5C1E3C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerFlix.Data.Movies.Tests", "BeerFlix.Data.Movies.Tests\BeerFlix.Data.Movies.Tests.csproj", "{C7B3DF66-9EF9-4DA9-A32F-A448ACBC26E6}"
+>>>>>>> master
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +31,7 @@ Global
 		{A8165F51-BBD9-4A17-ADBD-14034F0792AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8165F51-BBD9-4A17-ADBD-14034F0792AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8165F51-BBD9-4A17-ADBD-14034F0792AF}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{50D069C4-FB72-4AC2-AA41-2F8E4EEF375E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{50D069C4-FB72-4AC2-AA41-2F8E4EEF375E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50D069C4-FB72-4AC2-AA41-2F8E4EEF375E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +40,16 @@ Global
 		{C546D61A-89FB-4E48-A55C-57150925C3B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C546D61A-89FB-4E48-A55C-57150925C3B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C546D61A-89FB-4E48-A55C-57150925C3B5}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{06E37589-AD6D-445A-B12F-29BCF5C1E3C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06E37589-AD6D-445A-B12F-29BCF5C1E3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06E37589-AD6D-445A-B12F-29BCF5C1E3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06E37589-AD6D-445A-B12F-29BCF5C1E3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7B3DF66-9EF9-4DA9-A32F-A448ACBC26E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7B3DF66-9EF9-4DA9-A32F-A448ACBC26E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7B3DF66-9EF9-4DA9-A32F-A448ACBC26E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7B3DF66-9EF9-4DA9-A32F-A448ACBC26E6}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> master
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
