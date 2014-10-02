@@ -2,6 +2,16 @@
 {
     public class Movie
     {
-        public string Name { get; set; }
+        private readonly string _name;
+
+        public Movie(string name)
+        {
+            _name = name;
+        }
+
+        public string Name
+        {
+            get { return _name; }
+        }
     }
 }
