@@ -12,7 +12,7 @@ namespace BeerFlix.Data.Beers.Tests
             // Act
             var repository = new BeerRepository();
 
-            // Arrange
+            // Act
             var beers = repository.GetBeersByCharacteristics();
 
             // Assert

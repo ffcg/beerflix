@@ -5,6 +5,9 @@ namespace BeerFlix.Data.Beers
 {
     public class BeerRepository
     {
+        
+
+
         public IEnumerable<Beer> GetBeersByCharacteristics(
             double? alcoholPerPriceUnit = null,
             string country = null,
@@ -12,7 +15,7 @@ namespace BeerFlix.Data.Beers
             string alcoholByVolume = null,
             decimal? price = null)
         {
-            yield return new Beer() {Name = "beer 1"};
+            yield return new Beer() { Name = "beer 1" };
             yield return new Beer() { Name = "beer 2" };
             yield return new Beer() { Name = "beer 3" };
         }
