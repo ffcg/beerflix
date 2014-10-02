@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerFlix.Web", "BeerFlix.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerFlix.Data", "BeerFlix.Data\BeerFlix.Data.csproj", "{A8165F51-BBD9-4A17-ADBD-14034F0792AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerFlix.Data.Beers", "BeerFlix.Data.Beers\BeerFlix.Data.Beers.csproj", "{50D069C4-FB72-4AC2-AA41-2F8E4EEF375E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerFlix.Data.Beers.Tests", "BeerFlix.Data.Beers.Tests\BeerFlix.Data.Beers.Tests.csproj", "{C546D61A-89FB-4E48-A55C-57150925C3B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{A8165F51-BBD9-4A17-ADBD-14034F0792AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8165F51-BBD9-4A17-ADBD-14034F0792AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8165F51-BBD9-4A17-ADBD-14034F0792AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50D069C4-FB72-4AC2-AA41-2F8E4EEF375E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50D069C4-FB72-4AC2-AA41-2F8E4EEF375E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50D069C4-FB72-4AC2-AA41-2F8E4EEF375E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50D069C4-FB72-4AC2-AA41-2F8E4EEF375E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C546D61A-89FB-4E48-A55C-57150925C3B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C546D61A-89FB-4E48-A55C-57150925C3B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C546D61A-89FB-4E48-A55C-57150925C3B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C546D61A-89FB-4E48-A55C-57150925C3B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
