@@ -18,7 +18,7 @@ namespace BeerFlix.Data.Beers.Tests
             var systembolagetArticleRows = reader.GetAllRows(fileStream, @"AllaArtiklar");
 
             // Assert
-            systembolagetArticleRows.Should().HaveCount(2049);
+            systembolagetArticleRows.Should().HaveCount(2048);
         }
     }
 }

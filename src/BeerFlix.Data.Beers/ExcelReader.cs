@@ -75,25 +75,28 @@ namespace BeerFlix.Data.Beers
                     .ToArray();
 
                 firstCellValue = range.Length == 0 ? null : range[0].Value.ToString();
-                
-                var value = new T();
-                foreach (var cell in range)
-                {
-                    var propertyInfo = headersToColumnIndex[cell.Address.Column];
-                    if (propertyInfo != null)
-                    {
-                        if (cell.Value != null)
-                        {
-                            object cellValue;
 
-                            cellValue = DataTypeParser.ParseValue(cell.Value, propertyInfo.PropertyType,
-                                System.Globalization.CultureInfo.InvariantCulture);
-                            propertyInfo.SetValue(value, cellValue, null);
+                if (firstCellValue != null)
+                {
+                    var value = new T();
+                    foreach (var cell in range)
+                    {
+                        var propertyInfo = headersToColumnIndex[cell.Address.Column];
+                        if (propertyInfo != null)
+                        {
+                            if (cell.Value != null)
+                            {
+                                object cellValue;
+
+                                cellValue = DataTypeParser.ParseValue(cell.Value, propertyInfo.PropertyType,
+                                    System.Globalization.CultureInfo.InvariantCulture);
+                                propertyInfo.SetValue(value, cellValue, null);
+                            }
                         }
                     }
+                    results.Add(value);
+                    rowIndex++;
                 }
-                results.Add(value);
-                rowIndex++;
             } while (firstCellValue != null);
 
             Close();

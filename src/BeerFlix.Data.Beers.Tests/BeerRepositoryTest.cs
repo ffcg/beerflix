@@ -14,7 +14,7 @@ namespace BeerFlix.Data.Beers.Tests
             var reader = new ExcelReader<SystembolagetArticleRow>();
             var fileStream = File.Open(@"Data/systembolaget.xlsx",
                 FileMode.Open, FileAccess.Read, FileShare.Read);
-            var repository = new BeerRepository(reader);
+            var repository = new BeerRepository(reader, new CountryRepository());
 
             // Act
             var beers = repository.GetBeersByCriteria(new SearchCriteria());

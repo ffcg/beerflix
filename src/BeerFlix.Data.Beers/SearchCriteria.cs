@@ -12,8 +12,9 @@
             PriceMax = double.MaxValue;
         }
 
-        public string Country { get; set; }
-        public string Style { get; set; }
+        public string CountryIsoCode { get; set; }
+        public BeerStyle Style { get; set; }
+        public BeerProducer Producer { get; set; }
         public double AlcoholPerPriceUnitMin { get; set; }
         public double AlcoholPerPriceUnitMax { get; set; }
         public double AlcoholByVolumeMin { get; set; }
