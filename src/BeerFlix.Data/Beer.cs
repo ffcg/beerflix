@@ -10,7 +10,7 @@ namespace BeerFlix.Data
         public string Name { get; set; }
         public string Country { get; set; }
         public string Style { get; set; }
-        public decimal Price { get; set; }
+        public double Price { get; set; }
         public double AlcoholPerPriceUnit { get; set; }
         public double AlcoholByVolume { get; set; }
     }
